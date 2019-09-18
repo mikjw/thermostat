@@ -17,6 +17,17 @@ describe('Feature Test:', function() {
       expect(thermostat.current_temp()).toEqual(21);
     });
 
-  });
+    it('decreases the temperature', function() {
+      thermostat.decrement();
+      expect(thermostat.current_temp()).toEqual(19);
+    });
 
+    it('will not decrease temperature below minimum', function() {
+      for (var i = 0; i < 10; i ++) {
+        thermostat.decrement();
+      }
+      console.log(thermostat.current_temp());
+      expect(function() { thermostat.decrement();}).toThrowError('Minimum temperature reached');
+    });
+  });
 });

@@ -13,5 +13,17 @@ describe('Thermostat', function(){
       thermostat.increment();
       expect(thermostat.current_temp()).toEqual(21);
     });
+
+    it('decreases the temeperature by 1 C', function(){
+      thermostat.decrement();
+      expect(thermostat.current_temp()).toEqual(19);
+    });
+
+    it('will not decrease temperature below minimum', function() {
+      for (var i = 0; i < 10; i ++) {
+        thermostat.decrement();
+      }
+      expect(function() { thermostat.decrement();}).toThrowError('Minimum temperature reached');
+    });
   });
 });
