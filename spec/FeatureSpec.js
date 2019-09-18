@@ -7,10 +7,16 @@ describe('Feature Test:', function() {
     thermostat = new Thermostat();
   });
 
-  describe('default temperature is set to 20 degrees C', function() {
-    it('returns default temperature', function() {
+  describe('thermostat temperature functions', function() {
+    it('returns default temperature of 20 C', function() {
       expect(thermostat.current_temp()).toEqual(20);
-    }); 
+    });
+
+    it('increases the temperature', function() {
+      thermostat.increment();
+      expect(thermostat.current_temp()).toEqual(21);
+    });
+
   });
 
 });
