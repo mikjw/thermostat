@@ -22,7 +22,7 @@ describe('Thermostat', function(){
     it('will not decrease temperature below minimum', function() {
       for (var i = 0; i < 10; i ++) {
         thermostat.decrement();
-      }
+      };
       expect(function() { thermostat.decrement();}).toThrowError('Minimum temperature reached');
     });
   });

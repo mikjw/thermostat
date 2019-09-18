@@ -9,7 +9,7 @@ describe('Feature Test:', function() {
 
   describe('thermostat temperature functions', function() {
     it('returns default temperature of 20 C', function() {
-      expect(thermostat.current_temp()).toEqual(20);
+      expect(thermostat._temperature).toEqual(20);
     });
 
     it('increases the temperature', function() {
@@ -25,9 +25,24 @@ describe('Feature Test:', function() {
     it('will not decrease temperature below minimum', function() {
       for (var i = 0; i < 10; i ++) {
         thermostat.decrement();
-      }
-      console.log(thermostat.current_temp());
+      };
       expect(function() { thermostat.decrement();}).toThrowError('Minimum temperature reached');
     });
+
+    it('power saving mode is on by default', function(){
+      expect(thermostat.isPowerSavingOn()).toBe(true);
+    });
+
+    it ('turns power saving off', function(){
+      thermostat.turnOffPowerSaving();
+      expect(thermostat.isPowerSavingOn()).toBe(false);
+    });
+
+    // it('power saving mode sets a max temp of 25 C', function() {
+    //   console.log(thermostat._maxTemp)
+    //   thermostat.powerSavingOn();
+    //   expect(thermostat._maxTemp).toEqual(25);
+    // });
+
   });
 });
