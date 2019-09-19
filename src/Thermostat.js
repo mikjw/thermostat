@@ -21,16 +21,12 @@ Thermostat.prototype.decrement = function() {
     throw new Error("Minimum temperature reached");
   } else {
     this._temperature -= 1;
-  };
-};
+  }
+}
 Thermostat.prototype.isPowerSavingOn = function() {
   return this._powerSavingOn === true;
-};
+}
 
 Thermostat.prototype.turnOffPowerSaving = function() {
   this._powerSavingOn = false;
-};
-
-// Thermostat.prototype.powerSavingOn = function() {
-//   return this._maxTemp = 25;
-// };
+}

@@ -37,12 +37,5 @@ describe('Feature Test:', function() {
       thermostat.turnOffPowerSaving();
       expect(thermostat.isPowerSavingOn()).toBe(false);
     });
-
-    // it('power saving mode sets a max temp of 25 C', function() {
-    //   console.log(thermostat._maxTemp)
-    //   thermostat.powerSavingOn();
-    //   expect(thermostat._maxTemp).toEqual(25);
-    // });
-
   });
 });
