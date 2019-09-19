@@ -13,14 +13,14 @@ Thermostat.prototype.current_temp = function() {
 }
 
 Thermostat.prototype.increment = function() {
-  this._temperature += 1;
+  this._temperature ++;
 }
 
 Thermostat.prototype.decrement = function() {
   if (this.current_temp() === this._minTemp) {
-    throw new Error("Minimum temperature reached");
+   return;
   } else {
-    this._temperature -= 1;
+    this._temperature --;
   }
 }
 Thermostat.prototype.isPowerSavingOn = function() {
@@ -29,4 +29,24 @@ Thermostat.prototype.isPowerSavingOn = function() {
 
 Thermostat.prototype.turnOffPowerSaving = function() {
   this._powerSavingOn = false;
+  this._maxTemp = 32;
+}
+
+Thermostat.prototype.turnOnPowerSaving = function() {
+  this._powerSavingOn = true;
+  this._maxTemp = 25;
+}
+
+Thermostat.prototype.reset = function() {
+  this._temperature = 20;
+}
+
+Thermostat.prototype.energyUsage = function() {
+  if (this._temperature < 18) {
+    return 'Low';
+  } else if (this._temperature < 25) {
+    return 'Medium';
+  } else {  
+    return 'High';
+  }
 }

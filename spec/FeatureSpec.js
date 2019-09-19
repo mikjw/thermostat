@@ -22,20 +22,8 @@ describe('Feature Test:', function() {
       expect(thermostat.current_temp()).toEqual(19);
     });
 
-    it('will not decrease temperature below minimum', function() {
-      for (var i = 0; i < 10; i ++) {
-        thermostat.decrement();
-      };
-      expect(function() { thermostat.decrement();}).toThrowError('Minimum temperature reached');
-    });
-
     it('power saving mode is on by default', function(){
       expect(thermostat.isPowerSavingOn()).toBe(true);
-    });
-
-    it ('turns power saving off', function(){
-      thermostat.turnOffPowerSaving();
-      expect(thermostat.isPowerSavingOn()).toBe(false);
     });
   });
 });
