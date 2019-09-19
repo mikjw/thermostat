@@ -50,11 +50,11 @@ describe('Thermostat', function(){
         thermostat.decrement();
       }
       expect(thermostat.current_temp()).toEqual(17);
-      expect(thermostat.energyUsage()).toEqual('Low');
+      expect(thermostat.energyUsage()).toEqual('green');
     })
 
     it('returns medium usage for temperatures between 18 and 25', function() {
-      expect(thermostat.energyUsage()).toEqual('Medium');
+      expect(thermostat.energyUsage()).toEqual('#ffbf00');
     })
 
     it('returns high usage for temperatures above 24', function() {
@@ -62,7 +62,7 @@ describe('Thermostat', function(){
         thermostat.increment();
       }
       expect(thermostat.current_temp()).toEqual(25);
-      expect(thermostat.energyUsage()).toEqual('High');
+      expect(thermostat.energyUsage()).toEqual('red');
     })
   });
 });
