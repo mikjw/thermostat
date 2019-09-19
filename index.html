@@ -57,6 +57,10 @@
   <script src="src/jquery.js"></script>
 <script>
   runJQuery();
+  $.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=88c7e2a7ea768a229bfa8cb3207a105f", function(Response) {
+    var temp = parseInt(Response.main.temp - 273.15)
+    $('#api_temp').html(temp + '&#176 C');
+  });
 </script>
 
   <h1 id='header'><span class='rainbow'>THERMOSTAT</span></h1>
@@ -70,6 +74,9 @@
     <button class='adjustments' id='increment'>&#11014;</button>
     <button class='adjustments' id='decrement'>&#11015;</button>
     <button id='reset'>RESET</button>
+  </div>
+  <div>
+    <h4>Outside temp: <a id="api_temp">unknown</a><h4>
   </div>
   <script src='src/Thermostat.js'></script>
 </body>
