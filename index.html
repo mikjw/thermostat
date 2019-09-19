@@ -1,19 +1,48 @@
 <html>
 <head>
   <title>Thermostat</title>
+  <style>
+  body {
+    background-color: gray;
+  }
+  </style>
 </head>
 <body>
+  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      thermostat = new Thermostat();
+
+      function UpdatePage(){
+        $("#energy-usage-display").css({color: thermostat.energyUsage()});
+        $("#temperature").html(thermostat._temperature +'°C');
+        $("#power-saving-display").css({color: thermostat._powerSavingOn})
+
+      };
+
+      UpdatePage();
+      $('#power-saving-display').on('click', function(){
+        thermostat.togglePowerSaving();
+        UpdatePage();
+      });
+      $('#increment').on('click', function(){
+        thermostat.increment();
+      UpdatePage ();
+      });
+
+    })
+  </script>
   <h1>THERMOSTAT</h1>
   <div id='display'>
-    <h1 id='termperature'></h1>
-    <h1 id='power-saving-display'>POWER SAVING</h1>
+    <h1 id='temperature'></h1>
+    <button style='font-size: 36px' id="power-saving-display">POWER SAVING</button>
     <h1 id='energy-usage-display'>ENERGY</h1>
   </div>
   <div id='control panel'>
     <button id='increment'>+</button>
     <button id='decrement'>-</button>
     <button id='reset'>RESET</button>
-    <input id='power-saving' type='range' min='1' max='2' step='1'>
   </div>
   <script src='src/Thermostat.js'></script>
 </body>
