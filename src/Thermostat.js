@@ -58,7 +58,7 @@ Thermostat.prototype.energyUsage = function() {
   if (this._temperature < 18) {
     return 'green';
   } else if (this._temperature < 25) {
-    return 'yellow';
+    return '#ffbf00';
   } else {
     return 'red';
   }

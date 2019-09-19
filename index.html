@@ -2,17 +2,32 @@
 <head>
   <title>Thermostat</title>
   <style>
- 
+
   body {
-    font-size: 50;
+    font-size: 30;
     text-align: center;
     background-color: #b3ccff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
+  button:focus { outline: none;}
+
+  #temperature {
+    font-size: 75;
+  }
+
+  #energy-usage-display{
+    font-family: 'Arial black';
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  #power-saving-display {
+    color: white;
+    border-style: hidden;
+  }
 
   .rainbow {
-    font-size: 300;
+    font-size: 150;
     background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
     background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
     color:transparent;
@@ -21,12 +36,16 @@
   }
 
   .adjustments {
-    border-radius: 40%;
+    border-radius: 50%;
     font-size: 30;
+    height: 50px;
+    width: 50px;
   }
 
   #reset {
-    font-size: 27; 
+    font-size: 27;
+    color: white;
+    background-color: #990000;
   }
 
   </style>
@@ -36,16 +55,17 @@
 <body>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="src/jquery.js"></script>
-<script> 
+<script>
   runJQuery();
 </script>
 
   <h1 id='header'><span class='rainbow'>THERMOSTAT</span></h1>
   <div id='display'>
     <h1 id='temperature'></h1>
-    <button style='font-size: 36px' id="power-saving-display">POWER SAVING</button>
     <h1 id='energy-usage-display'>ENERGY</h1>
+    <button style='font-size: 36px' id="power-saving-display">POWER SAVING</button>
   </div>
+  <br>
   <div id='control panel'>
     <button class='adjustments' id='increment'>&#11014;</button>
     <button class='adjustments' id='decrement'>&#11015;</button>

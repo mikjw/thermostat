@@ -7,11 +7,11 @@ runJQuery = function() {
     function UpdatePage(){
       $("#energy-usage-display").css({color: thermostat.energyUsage()});
       $("#temperature").html(thermostat._temperature + '&#176 C');
-      $("#power-saving-display").css({color: thermostat._powerSavingOn})
+      $("#power-saving-display").css({backgroundColor: thermostat._powerSavingOn})
     };
 
     UpdatePage();
-    
+
     $('#power-saving-display').on('click', function(){
       thermostat.togglePowerSaving();
       UpdatePage();
