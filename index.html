@@ -2,46 +2,53 @@
 <head>
   <title>Thermostat</title>
   <style>
+ 
   body {
-    background-color: gray;
+    font-size: 50;
+    text-align: center;
+    background-color: #b3ccff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
+
+
+  .rainbow {
+    font-size: 300;
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .adjustments {
+    border-radius: 40%;
+    font-size: 30;
+  }
+
+  #reset {
+    font-size: 27; 
+  }
+
   </style>
+
+
 </head>
 <body>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
+  <script src="src/jquery.js"></script>
+<script> 
+  runJQuery();
+</script>
 
-      thermostat = new Thermostat();
-
-      function UpdatePage(){
-        $("#energy-usage-display").css({color: thermostat.energyUsage()});
-        $("#temperature").html(thermostat._temperature +'°C');
-        $("#power-saving-display").css({color: thermostat._powerSavingOn})
-
-      };
-
-      UpdatePage();
-      $('#power-saving-display').on('click', function(){
-        thermostat.togglePowerSaving();
-        UpdatePage();
-      });
-      $('#increment').on('click', function(){
-        thermostat.increment();
-      UpdatePage ();
-      });
-
-    })
-  </script>
-  <h1>THERMOSTAT</h1>
+  <h1 id='header'><span class='rainbow'>THERMOSTAT</span></h1>
   <div id='display'>
     <h1 id='temperature'></h1>
     <button style='font-size: 36px' id="power-saving-display">POWER SAVING</button>
     <h1 id='energy-usage-display'>ENERGY</h1>
   </div>
   <div id='control panel'>
-    <button id='increment'>+</button>
-    <button id='decrement'>-</button>
+    <button class='adjustments' id='increment'>&#11014;</button>
+    <button class='adjustments' id='decrement'>&#11015;</button>
     <button id='reset'>RESET</button>
   </div>
   <script src='src/Thermostat.js'></script>
